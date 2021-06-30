@@ -1,6 +1,10 @@
 const weather = require('weather-js');
+const EventEmitter = require('events');
 
-class DrzzlWeather {
+class WeatherEmitter extends EventEmitter {}
+const emitter = new WeatherEmitter();
+
+class DrzzlWeather extends EventEmitter {
 
 	// constructor creates our object and takes an address/lat/lng
 	// as it's main argument
@@ -26,6 +30,7 @@ class DrzzlWeather {
 			}
 
 			this.weatherData = result[0];
+			this.emit('loaded');
 		}.bind(this));
 	}
 
