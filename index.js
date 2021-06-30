@@ -9,6 +9,7 @@ class DrzzlWeather extends EventEmitter {
 	// constructor creates our object and takes an address/lat/lng
 	// as it's main argument
 	constructor(someAddress) {
+		super();
 
 		// property to let us know if our weather fetch failed or had error
 		this.error = false;
